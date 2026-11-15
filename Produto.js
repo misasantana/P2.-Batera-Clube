@@ -12,6 +12,11 @@ class Produto {
     }
 
     vender(quantidade) {
+        if (quantidade <= 0) {
+            console.log(`Quantidade inválida para venda de ${quantidade}. Informe um valor maior que zero`);
+            return;
+        }
+
         if (quantidade <= this.estoque) {
             this.estoque -= quantidade;
             console.log(`Venda realizada! Estoque atual de '${this.nome}': ${this.estoque} unidades.`);
